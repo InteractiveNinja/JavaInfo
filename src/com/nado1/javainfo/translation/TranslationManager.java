@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import org.json.*;
+import org.json.JSONObject;
 
 public class TranslationManager {
 
@@ -21,7 +21,7 @@ public class TranslationManager {
 		String json = null;
 		StringBuilder jsontext = new StringBuilder();
 		try {
-			InputStream in = getClass().getClassLoader().getResourceAsStream("translation.json");
+			InputStream in = getClass().getClassLoader().getResourceAsStream("com/nado1/javainfo/translation/translation.json");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			while ((json = reader.readLine()) != null) {
 				jsontext.append(json);

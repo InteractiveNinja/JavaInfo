@@ -8,27 +8,26 @@ public class Startup {
 
 	public Startup(String args[], TranslationManager lang) {
 		this.lang = lang;
-		
-		for (int i = 0; i < args.length; i++) {
-			checkFlags(args[i]);
-			
-			
+		if(args != null) {
+			normalStart();
+		} else {
+			for (int i = 0; i < args.length; i++) {
+				checkFlags(args[i]);
+
+			}
 		}
 		
 
 	}
-	
+
 	private void checkFlags(String s) {
-		if(s.contentEquals("--fast") | s.contentEquals("-f")) {
+		if (s.contentEquals("--fast") | s.contentEquals("-f")) {
 			fastStart();
-		} else {
-			normalStart();
-		}
+		} 
 	}
 
 	private void normalStart() {
 		new WaitingGUI(lang);
-
 	}
 
 	private void fastStart() {
