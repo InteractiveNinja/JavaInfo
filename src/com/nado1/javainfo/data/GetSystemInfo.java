@@ -14,6 +14,8 @@ public class GetSystemInfo extends AbstractInfoObj {
 	private String uptime = "";
 	private String ram = "";
 	private String processor = "";
+	private String osName;
+	private String hostname;
 
 	public GetSystemInfo(TranslationManager lang) {
 		this.lang = lang;
@@ -28,7 +30,7 @@ public class GetSystemInfo extends AbstractInfoObj {
 	@Override
 	String getName() {
 
-		return System.getProperty("os.name");
+		return osName;
 	}
 
 	String getVersion() {
@@ -50,6 +52,10 @@ public class GetSystemInfo extends AbstractInfoObj {
 		return uptime;
 
 	}
+	
+	String getHostname() {
+		return hostname;
+	}
 
 	private void getData() {
 
@@ -60,16 +66,23 @@ public class GetSystemInfo extends AbstractInfoObj {
 				BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 				while ((readerString = in.readLine()) != null) {
 					if (readerString.contains(lang.getText("data.uptime"))) {
-//						uptime = stringFormatting(readerString);
 						uptime = readerString.substring(30).trim();
 
 					}
 					if (readerString.contains(lang.getText("data.ram"))) {
-//						ram = stringFormatting(readerString);
 						ram = readerString.substring(30).trim();
 
 					}
-//					if (readerString.contains("Hotfix")) {
+					if (readerString.contains(lang.getText("data.osname"))) {
+						osName = readerString.substring(30).trim();
+
+					}
+					
+					if (readerString.contains(lang.getText("data.hostname"))) {
+						hostname = readerString.substring(30).trim();
+
+					}
+					
 					if (readerString.contains(lang.getText("data.processor"))) {
 						while ((readerString = in.readLine()).contains("[")) {
 							if(processor.equals("")) {

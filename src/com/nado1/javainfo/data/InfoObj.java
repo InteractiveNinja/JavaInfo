@@ -7,7 +7,7 @@ import com.nado1.javainfo.translation.TranslationManager;
 public class InfoObj {
 
 	private HashMap<String, String> dic = new HashMap<String, String>();
-	private GetSystemInfo getSystemName;
+	private GetSystemInfo getSystemInfo;
 	private GetUserInfo getUserInfo = new GetUserInfo();
 	private GetJavaInfo getJavaInfo = new GetJavaInfo();
 	private TranslationManager lang;
@@ -22,19 +22,19 @@ public class InfoObj {
 
 		lang = new TranslationManager(getInfo("user.language"));
 		
-		getSystemName = new GetSystemInfo(lang);
+		getSystemInfo = new GetSystemInfo(lang);
 
-		putInDic("system.name", getSystemName.getName());
+		putInDic("system.name", getSystemInfo.getName());
 
-		putInDic("system.version", getSystemName.getVersion());
+		putInDic("system.version", getSystemInfo.getVersion());
 
-		putInDic("system.uptime", getSystemName.getUptime());
+		putInDic("system.uptime", getSystemInfo.getUptime());
 
-		putInDic("system.ram", getSystemName.getRam());
+		putInDic("system.ram", getSystemInfo.getRam());
 		
-		putInDic("system.processor", getSystemName.getProcessor());
+		putInDic("system.processor", getSystemInfo.getProcessor());
 		
-		System.out.println(getSystemName.getProcessor());
+		putInDic("system.hostname", getSystemInfo.getHostname());
 		
 		putInDic("java.name", getJavaInfo.getName());
 

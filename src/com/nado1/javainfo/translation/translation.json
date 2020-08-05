@@ -17,9 +17,12 @@
 		"system.uptime":"OS Startzeit:",
 		"system.ram":"Arbeitsspeicher:",
 		"system.processor":"Prozessor(en):",
+		"system.hostname":"Hostname:",
 		"data.uptime":"Systemstartzeit:",
 		"data.ram":"Gesamter physischer Speicher:",
-		"data.processor":"Prozessor(en):"
+		"data.processor":"Prozessor(en):",
+		"data.osname":"Betriebssystemname:",
+		"data.hostname":"Hostname:"
 		
 	},"fr": {
 		"wait": "Bitte warten Sie einen Augenblick..",
