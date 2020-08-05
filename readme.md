@@ -1,12 +1,20 @@
-# Java Info
+### Java Info
 
-## A Info Window for Systems
+# Requires Java to work lol.
 
 
 The Main reason for the Programm is to give the User Information of his System hes running this Programm from.
 
-### Requires Java 8 to work.
+
+### Features
 
 
-### Used Librarys 
-[Json-Java](https://github.com/stleary/JSON-java)
+ * ~Translated in 4 Diffrent Languages(German, Englisch, French, Italian)~(work in progress)
+ * Shows User Informations
+ * Shows Last Bootuptime
+ * Java Informations
+ 
+
+
+### Used Library 
+[JSON-java](https://github.com/stleary/JSON-java)
