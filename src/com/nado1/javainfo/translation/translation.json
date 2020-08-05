@@ -14,7 +14,7 @@
 		"system.title":"System Informationen",
 		"system.name":"OS Name:",
 		"system.version":"OS Version:",
-		"system.uptime":"OS Laufzeit:"
+		"system.uptime":"OS Startzeit:"
 		
 	},"fr": {
 		"wait": "Bitte warten Sie einen Augenblick..",
@@ -31,7 +31,7 @@
 		"system.title":"System Informationen",
 		"system.name":"OS Name:",
 		"system.version":"OS Version:",
-		"system.uptime":"OS Laufzeit:"
+		"system.uptime":"OS Startzeit:"
 		
 	},"it": {
 		"wait": "Bitte warten Sie einen Augenblick..",
@@ -48,7 +48,7 @@
 		"system.title":"System Informationen",
 		"system.name":"OS Name:",
 		"system.version":"OS Version:",
-		"system.uptime":"OS Laufzeit:"
+		"system.uptime":"OS Startzeit:"
 		
 	},"en": {
 		"wait": "Bitte warten Sie einen Augenblick..",
@@ -65,7 +65,7 @@
 		"system.title":"System Informationen",
 		"system.name":"OS Name:",
 		"system.version":"OS Version:",
-		"system.uptime":"OS Laufzeit:"
+		"system.uptime":"OS Startzeit:"
 		
 	}
 }

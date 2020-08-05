@@ -3,6 +3,10 @@ package com.nado1.javainfo.data;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.Calendar;
 
 public class GetSystemInfo extends AbstractInfoObj {
 	private boolean isWindows = false;
@@ -35,7 +39,8 @@ public class GetSystemInfo extends AbstractInfoObj {
 				BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 				while ((readerString = in.readLine()) != null) {
 					if (readerString.contains("Systemstartzeit")) {
-						time = readerString;
+						time = stringFormatting(readerString);
+						
 					}
 				}
 			} catch (IOException e) {
@@ -46,6 +51,23 @@ public class GetSystemInfo extends AbstractInfoObj {
 			return null;
 		}
 
+	}
+	
+	private String stringFormatting(String readerString) {
+		
+		String time = "";
+		time = readerString;
+		time = time.substring(20);
+		time = time.trim();
+//		time = time.substring(11);
+//		time = time.trim();
+//		Calendar c = Calendar.getInstance();
+//		DecimalFormat mFormat= new DecimalFormat("00");
+//		
+//		time = c.get(Calendar.YEAR) + "-" + mFormat.format(c.get(Calendar.MONTH)) + "-" + mFormat.format(c.get(Calendar.DAY_OF_MONTH)) + "T" + time + ".00Z";
+//		Duration d = Duration.between(Instant.parse(time), Instant.now());
+		return time;
+		
 	}
 
 }
