@@ -3,20 +3,26 @@ package com.nado1.javainfo.data;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.DecimalFormat;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Calendar;
+
+import com.nado1.javainfo.translation.TranslationManager;
 
 public class GetSystemInfo extends AbstractInfoObj {
-	private boolean isWindows = false;
 
-	public GetSystemInfo() {
+	private TranslationManager lang;
+
+	private boolean isWindows = false;
+	private String uptime = "";
+	private String ram = "";
+	private String processor = "";
+
+	public GetSystemInfo(TranslationManager lang) {
+		this.lang = lang;
 		if (System.getProperty("os.name").contains("Win")) {
 			isWindows = true;
 		} else {
 			isWindows = false;
 		}
+		getData();
 	}
 
 	@Override
@@ -30,44 +36,70 @@ public class GetSystemInfo extends AbstractInfoObj {
 		return System.getProperty("os.version");
 	}
 
+	String getRam() {
+
+		return ram;
+	}
+
+	String getProcessor() {
+
+		return processor;
+	}
+
 	String getUptime() {
+		return uptime;
+
+	}
+
+	private void getData() {
+
 		if (isWindows) {
 			String readerString = "";
-			String time = "";
 			try {
 				Process pr = Runtime.getRuntime().exec("systeminfo");
 				BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
 				while ((readerString = in.readLine()) != null) {
-					if (readerString.contains("Systemstartzeit")) {
-						time = stringFormatting(readerString);
-						
+					if (readerString.contains(lang.getText("data.uptime"))) {
+//						uptime = stringFormatting(readerString);
+						uptime = readerString.substring(30).trim();
+
+					}
+					if (readerString.contains(lang.getText("data.ram"))) {
+//						ram = stringFormatting(readerString);
+						ram = readerString.substring(30).trim();
+
+					}
+//					if (readerString.contains("Hotfix")) {
+					if (readerString.contains(lang.getText("data.processor"))) {
+						while ((readerString = in.readLine()).contains("[")) {
+							if(processor.equals("")) {
+								processor = readerString.trim().substring(6);
+							} else {
+								processor = processor + "\n" + readerString.trim().substring(6);
+							}
+							
+						}
+
 					}
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return time;
+
 		} else {
-			return null;
+
 		}
 
 	}
-	
-	private String stringFormatting(String readerString) {
-		
-		String time = "";
-		time = readerString;
-		time = time.substring(20);
-		time = time.trim();
-//		time = time.substring(11);
+
+//	private String stringFormatting(String readerString) {
+//
+//		String time = "";
+//		time = readerString;
+//		time = time.substring(30);
 //		time = time.trim();
-//		Calendar c = Calendar.getInstance();
-//		DecimalFormat mFormat= new DecimalFormat("00");
-//		
-//		time = c.get(Calendar.YEAR) + "-" + mFormat.format(c.get(Calendar.MONTH)) + "-" + mFormat.format(c.get(Calendar.DAY_OF_MONTH)) + "T" + time + ".00Z";
-//		Duration d = Duration.between(Instant.parse(time), Instant.now());
-		return time;
-		
-	}
+//		return time;
+//
+//	}
 
 }

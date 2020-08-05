@@ -14,7 +14,12 @@
 		"system.title":"System Informationen",
 		"system.name":"OS Name:",
 		"system.version":"OS Version:",
-		"system.uptime":"OS Startzeit:"
+		"system.uptime":"OS Startzeit:",
+		"system.ram":"Arbeitsspeicher:",
+		"system.processor":"Prozessor(en):",
+		"data.uptime":"Systemstartzeit:",
+		"data.ram":"Gesamter physischer Speicher:",
+		"data.processor":"Prozessor(en):"
 		
 	},"fr": {
 		"wait": "Bitte warten Sie einen Augenblick..",

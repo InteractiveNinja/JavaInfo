@@ -8,6 +8,9 @@ import com.nado1.javainfo.starter.Starter;
 import com.nado1.javainfo.translation.TranslationManager;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.JTextPane;
+import java.awt.SystemColor;
 
 public class InfoGUI extends JFrame {
 
@@ -23,6 +26,8 @@ public class InfoGUI extends JFrame {
 	private JTextField tfSystemName;
 	private JTextField tfSystemVersion;
 	private JTextField tfSystemUptime;
+	private JTextField twSystemRam;
+	private JTextPane tfSystemProcessor;
 
 	public InfoGUI(TranslationManager lang) {
 
@@ -57,14 +62,14 @@ public class InfoGUI extends JFrame {
 
 		tfUserName = new JTextField(info.getInfo("user.name"));
 		tfUserName.setEditable(false);
-		tfUserName.setBounds(202, 48, 254, 26);
+		tfUserName.setBounds(202, 48, 309, 26);
 		getContentPane().add(tfUserName);
 		tfUserName.setColumns(10);
 
 		tfUserLanguage = new JTextField(info.getInfo("user.language"));
 		tfUserLanguage.setEditable(false);
 		tfUserLanguage.setColumns(10);
-		tfUserLanguage.setBounds(202, 85, 254, 26);
+		tfUserLanguage.setBounds(202, 85, 309, 26);
 		getContentPane().add(tfUserLanguage);
 
 		JLabel userLanguage = new JLabel(lang.getText("user.language"));
@@ -80,7 +85,7 @@ public class InfoGUI extends JFrame {
 		tfUserCountry = new JTextField(info.getInfo("user.country"));
 		tfUserCountry.setEditable(false);
 		tfUserCountry.setColumns(10);
-		tfUserCountry.setBounds(202, 122, 254, 26);
+		tfUserCountry.setBounds(202, 122, 309, 26);
 		getContentPane().add(tfUserCountry);
 		
 		JLabel javaName = new JLabel(lang.getText("java.name"));
@@ -91,7 +96,7 @@ public class InfoGUI extends JFrame {
 		tfJavaVersion = new JTextField(info.getInfo("java.version"));
 		tfJavaVersion.setEditable(false);
 		tfJavaVersion.setColumns(10);
-		tfJavaVersion.setBounds(202, 279, 254, 26);
+		tfJavaVersion.setBounds(202, 279, 309, 26);
 		getContentPane().add(tfJavaVersion);
 		
 		JLabel javaVendor = new JLabel(lang.getText("java.vendor"));
@@ -107,13 +112,13 @@ public class InfoGUI extends JFrame {
 		tfJavaVendor = new JTextField(info.getInfo("java.vendor"));
 		tfJavaVendor.setEditable(false);
 		tfJavaVendor.setColumns(10);
-		tfJavaVendor.setBounds(202, 242, 254, 26);
+		tfJavaVendor.setBounds(202, 242, 309, 26);
 		getContentPane().add(tfJavaVendor);
 		
 		tfJavaName = new JTextField(info.getInfo("java.name"));
 		tfJavaName.setEditable(false);
 		tfJavaName.setColumns(10);
-		tfJavaName.setBounds(202, 205, 254, 26);
+		tfJavaName.setBounds(202, 205, 309, 26);
 		getContentPane().add(tfJavaName);
 		
 		JLabel systemName = new JLabel(lang.getText("system.name"));
@@ -134,22 +139,46 @@ public class InfoGUI extends JFrame {
 		tfSystemName = new JTextField(info.getInfo("system.name"));
 		tfSystemName.setEditable(false);
 		tfSystemName.setColumns(10);
-		tfSystemName.setBounds(202, 363, 254, 26);
+		tfSystemName.setBounds(202, 363, 309, 26);
 		getContentPane().add(tfSystemName);
 		
 		tfSystemVersion = new JTextField(info.getInfo("system.version"));
 		tfSystemVersion.setEditable(false);
 		tfSystemVersion.setColumns(10);
-		tfSystemVersion.setBounds(202, 400, 254, 26);
+		tfSystemVersion.setBounds(202, 400, 309, 26);
 		getContentPane().add(tfSystemVersion);
 		
 		tfSystemUptime = new JTextField(info.getInfo("system.uptime"));
 		tfSystemUptime.setEditable(false);
 		tfSystemUptime.setColumns(10);
-		tfSystemUptime.setBounds(202, 437, 254, 26);
+		tfSystemUptime.setBounds(202, 437, 309, 26);
 		getContentPane().add(tfSystemUptime);
+		
+		JLabel systemRam = new JLabel(lang.getText("system.ram"));
+		systemRam.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		systemRam.setBounds(10, 477, 113, 26);
+		getContentPane().add(systemRam);
+		
+		twSystemRam = new JTextField(info.getInfo("system.ram"));
+		twSystemRam.setEditable(false);
+		twSystemRam.setColumns(10);
+		twSystemRam.setBounds(202, 477, 309, 26);
+		getContentPane().add(twSystemRam);
+		
+		JLabel systemProcessor = new JLabel(lang.getText("system.processor"));
+		systemProcessor.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		systemProcessor.setBounds(10, 516, 113, 26);
+		getContentPane().add(systemProcessor);
+		
+		tfSystemProcessor = new JTextPane();
+		tfSystemProcessor.setBackground(SystemColor.menu);
+		tfSystemProcessor.setText(info.getInfo("system.processor"));
+		tfSystemProcessor.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		tfSystemProcessor.setEditable(false);
+		tfSystemProcessor.setBounds(202, 522, 309, 106);
+		getContentPane().add(tfSystemProcessor);
 		setTitle(this.lang.getText("main"));
-		setSize(500, 700);
+		setSize(550, 700);
 		setVisible(true);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
