@@ -2,8 +2,6 @@ package com.nado1.javainfo.gui;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
-
 import com.nado1.javainfo.translation.TranslationManager;
 
 public class WaitingGUI extends JFrame{
