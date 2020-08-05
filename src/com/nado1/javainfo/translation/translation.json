@@ -1,18 +1,71 @@
 {
 	"de": {
 		"wait": "Bitte warten Sie einen Augenblick..",
-		"wait2": "Systeminformationen werden gesammelt, bitte warten"
-	},
-	"fr": {
+		"wait2": "Systeminformationen werden gesammelt, bitte warten",
+		"main":"Systeminformationen",
+		"user.title":"User Informationen",
+		"user.name":"Benutzer:",
+		"user.language":"Sprache:",
+		"user.country":"Land:",
+		"java.title":"Java Informationen",
+		"java.name":"Name:",
+		"java.vendor":"Herausgeber:",
+		"java.version":"Version:",
+		"system.title":"System Informationen",
+		"system.name":"OS Name:",
+		"system.version":"OS Version:",
+		"system.uptime":"OS Laufzeit:"
+		
+	},"fr": {
 		"wait": "Bitte warten Sie einen Augenblick..",
-		"wait2": "Systeminformationen werden gesammelt, bitte warten"
-	},
-	"en": {
+		"wait2": "Systeminformationen werden gesammelt, bitte warten",
+		"main":"Systeminformationen",
+		"user.title":"User Informationen",
+		"user.name":"Benutzer:",
+		"user.language":"Sprache:",
+		"user.country":"Land:",
+		"java.title":"Java Informationen",
+		"java.name":"Name:",
+		"java.vendor":"Herausgeber:",
+		"java.version":"Version:",
+		"system.title":"System Informationen",
+		"system.name":"OS Name:",
+		"system.version":"OS Version:",
+		"system.uptime":"OS Laufzeit:"
+		
+	},"it": {
 		"wait": "Bitte warten Sie einen Augenblick..",
-		"wait2": "Systeminformationen werden gesammelt, bitte warten"
-	},
-	"it": {
+		"wait2": "Systeminformationen werden gesammelt, bitte warten",
+		"main":"Systeminformationen",
+		"user.title":"User Informationen",
+		"user.name":"Benutzer:",
+		"user.language":"Sprache:",
+		"user.country":"Land:",
+		"java.title":"Java Informationen",
+		"java.name":"Name:",
+		"java.vendor":"Herausgeber:",
+		"java.version":"Version:",
+		"system.title":"System Informationen",
+		"system.name":"OS Name:",
+		"system.version":"OS Version:",
+		"system.uptime":"OS Laufzeit:"
+		
+	},"en": {
 		"wait": "Bitte warten Sie einen Augenblick..",
-		"wait2": "Systeminformationen werden gesammelt, bitte warten"
+		"wait2": "Systeminformationen werden gesammelt, bitte warten",
+		"main":"Systeminformationen",
+		"user.title":"User Informationen",
+		"user.name":"Benutzer:",
+		"user.language":"Sprache:",
+		"user.country":"Land:",
+		"java.title":"Java Informationen",
+		"java.name":"Name:",
+		"java.vendor":"Herausgeber:",
+		"java.version":"Version:",
+		"system.title":"System Informationen",
+		"system.name":"OS Name:",
+		"system.version":"OS Version:",
+		"system.uptime":"OS Laufzeit:"
+		
 	}
 }

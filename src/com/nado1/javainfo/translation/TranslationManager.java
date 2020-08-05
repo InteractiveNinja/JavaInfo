@@ -27,10 +27,15 @@ public class TranslationManager {
 				jsontext.append(json);
 			}
 		} catch (IOException e) {
-			e.printStackTrace();
+			new IOException("Übersetzungsdatei wurde nicht gefunden oder konnte nicht gelesen werden");
 		}
 
-		obj = new JSONObject(jsontext.toString());
+		try {
+			obj = new JSONObject(jsontext.toString());
+		} catch (Exception e) {
+			new Exception("Ein Fehler in der JSON Übersetzungsdatei ist aufgetretten");
+		}
+		
 	}
 
 	public String getText(String key) {

@@ -1,5 +1,6 @@
 package com.nado1.javainfo.starter;
 
+import com.nado1.javainfo.gui.InfoGUI;
 import com.nado1.javainfo.gui.WaitingGUI;
 import com.nado1.javainfo.translation.TranslationManager;
 
@@ -8,7 +9,7 @@ public class Startup {
 
 	public Startup(String args[], TranslationManager lang) {
 		this.lang = lang;
-		if(args != null) {
+		if((args.length <= 0)) {
 			normalStart();
 		} else {
 			for (int i = 0; i < args.length; i++) {
@@ -32,7 +33,7 @@ public class Startup {
 
 	private void fastStart() {
 
-		System.out.println("schneller Start platzhalter");
+		new InfoGUI(lang);
 	}
 
 }
