@@ -1,6 +1,5 @@
 package com.nado1.javainfo.starter;
 import com.nado1.javainfo.data.InfoObj;
-import com.nado1.javainfo.gui.WaitingGUI;
 import com.nado1.javainfo.translation.TranslationManager;
 public class Starter {
 	
@@ -9,8 +8,11 @@ public class Starter {
 	public static void main(String[] args) {
 		
 		lang = new TranslationManager(info.getInfo("user.language"));
+		new Startup(args,lang);
 		
-		new WaitingGUI(lang);
+		
+		
+//		
 		
 	}
 
