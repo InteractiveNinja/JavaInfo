@@ -2,6 +2,7 @@
 	"de": {
 		"wait": "Bitte warten Sie einen Augenblick..",
 		"wait2": "Systeminformationen werden gesammelt, bitte warten",
+		"export.data":"Systeminformationen abspeichern",
 		"main": "Systeminformationen",
 		"user.title": "User Informationen",
 		"user.name": "Benutzer:",
@@ -18,11 +19,13 @@
 		"system.ram": "Arbeitsspeicher:",
 		"system.processor": "Prozessor(en):",
 		"system.hostname": "Hostname:",
+		"system.model":"Model:",
 		"data.uptime": "Systemstartzeit:",
 		"data.ram": "Gesamter physischer Speicher:",
 		"data.processor": "Prozessor(en):",
 		"data.osname": "Betriebssystemname:",
-		"data.hostname": "Hostname:"
+		"data.hostname": "Hostname:",
+		"data.model":"Systemmodell:"
 	},
 	"fr": {
 		"wait": "Bitte warten Sie einen Augenblick..",

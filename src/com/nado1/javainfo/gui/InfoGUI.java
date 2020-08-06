@@ -2,17 +2,21 @@ package com.nado1.javainfo.gui;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import com.nado1.javainfo.data.InfoObj;
 import com.nado1.javainfo.starter.Starter;
 import com.nado1.javainfo.translation.TranslationManager;
 import java.awt.Font;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.JTextPane;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class InfoGUI extends JFrame {
+import javax.swing.JButton;
+
+public class InfoGUI extends JFrame implements ActionListener{
 
 	private TranslationManager lang;
 	private InfoObj info = Starter.info;
@@ -29,6 +33,7 @@ public class InfoGUI extends JFrame {
 	private JTextField twSystemRam;
 	private JTextPane tfSystemProcessor;
 	private JTextField tfSystemHostname;
+	private JTextField tfSystemModel;
 
 	public InfoGUI(TranslationManager lang) {
 
@@ -134,7 +139,7 @@ public class InfoGUI extends JFrame {
 		
 		JLabel systemUptime = new JLabel(lang.getText("system.uptime"));
 		systemUptime.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		systemUptime.setBounds(10, 470, 113, 26);
+		systemUptime.setBounds(10, 513, 113, 26);
 		getContentPane().add(systemUptime);
 		
 		tfSystemName = new JTextField(info.getInfo("system.name"));
@@ -152,23 +157,23 @@ public class InfoGUI extends JFrame {
 		tfSystemUptime = new JTextField(info.getInfo("system.uptime"));
 		tfSystemUptime.setEditable(false);
 		tfSystemUptime.setColumns(10);
-		tfSystemUptime.setBounds(202, 470, 309, 26);
+		tfSystemUptime.setBounds(202, 513, 309, 26);
 		getContentPane().add(tfSystemUptime);
 		
 		JLabel systemRam = new JLabel(lang.getText("system.ram"));
 		systemRam.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		systemRam.setBounds(10, 510, 113, 26);
+		systemRam.setBounds(10, 553, 113, 26);
 		getContentPane().add(systemRam);
 		
 		twSystemRam = new JTextField(info.getInfo("system.ram"));
 		twSystemRam.setEditable(false);
 		twSystemRam.setColumns(10);
-		twSystemRam.setBounds(202, 510, 309, 26);
+		twSystemRam.setBounds(202, 553, 309, 26);
 		getContentPane().add(twSystemRam);
 		
 		JLabel systemProcessor = new JLabel(lang.getText("system.processor"));
 		systemProcessor.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		systemProcessor.setBounds(10, 549, 113, 26);
+		systemProcessor.setBounds(10, 592, 113, 26);
 		getContentPane().add(systemProcessor);
 		
 		tfSystemProcessor = new JTextPane();
@@ -176,24 +181,49 @@ public class InfoGUI extends JFrame {
 		tfSystemProcessor.setText(info.getInfo("system.processor"));
 		tfSystemProcessor.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		tfSystemProcessor.setEditable(false);
-		tfSystemProcessor.setBounds(202, 555, 309, 106);
+		tfSystemProcessor.setBounds(202, 598, 309, 106);
 		getContentPane().add(tfSystemProcessor);
 		
 		JLabel systemHostname = new JLabel(lang.getText("system.hostname"));
 		systemHostname.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		systemHostname.setBounds(10, 437, 113, 26);
+		systemHostname.setBounds(10, 480, 113, 26);
 		getContentPane().add(systemHostname);
 		
 		tfSystemHostname = new JTextField(info.getInfo("system.hostname"));
 		tfSystemHostname.setEditable(false);
 		tfSystemHostname.setColumns(10);
-		tfSystemHostname.setBounds(202, 437, 309, 26);
+		tfSystemHostname.setBounds(202, 480, 309, 26);
 		getContentPane().add(tfSystemHostname);
+		
+		JLabel systemModel = new JLabel(lang.getText("system.model"));
+		systemModel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		systemModel.setBounds(10, 437, 113, 26);
+		getContentPane().add(systemModel);
+		
+		tfSystemModel = new JTextField(info.getInfo("system.model"));
+		tfSystemModel.setEditable(false);
+		tfSystemModel.setColumns(10);
+		tfSystemModel.setBounds(202, 437, 309, 26);
+		getContentPane().add(tfSystemModel);
+		
+		JButton mailButton = new JButton(lang.getText("export.data"));
+		mailButton.setBounds(134, 711, 234, 39);
+		mailButton.addActionListener(this);
+		getContentPane().add(mailButton);
 		setTitle(this.lang.getText("main"));
 		setSize(550, 800);
 		setVisible(true);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(info.exportInfos()) {
+			JOptionPane.showMessageDialog(null, "Datei wurde erfolgreich expotiert");
+		} else {
+			JOptionPane.showMessageDialog(null, "Datei konnte nicht erstellt werden");
+		}
 	}
 }

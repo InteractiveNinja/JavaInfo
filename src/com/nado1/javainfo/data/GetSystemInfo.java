@@ -16,7 +16,7 @@ public class GetSystemInfo extends AbstractInfoObj {
 	private String processor = "";
 	private String osName;
 	private String hostname;
-
+	private String model;
 	public GetSystemInfo(TranslationManager lang) {
 		this.lang = lang;
 		if (System.getProperty("os.name").contains("Win")) {
@@ -56,6 +56,10 @@ public class GetSystemInfo extends AbstractInfoObj {
 	String getHostname() {
 		return hostname;
 	}
+	
+	String getModel() {
+		return model;
+	}
 
 	private void getData() {
 
@@ -83,6 +87,11 @@ public class GetSystemInfo extends AbstractInfoObj {
 
 					}
 					
+					if (readerString.contains(lang.getText("data.model"))) {
+						model = readerString.substring(30).trim();
+
+					}
+					
 					if (readerString.contains(lang.getText("data.processor"))) {
 						while ((readerString = in.readLine()).contains("[")) {
 							if(processor.equals("")) {
@@ -100,19 +109,13 @@ public class GetSystemInfo extends AbstractInfoObj {
 			}
 
 		} else {
+			
+			//Hier würde die Logic hinkommen wenn es sich nicht um Windows handel würde
+			// Bis jetzt ist hier aber noch nichts implementiert
+			// Schande über mich
 
 		}
 
 	}
-
-//	private String stringFormatting(String readerString) {
-//
-//		String time = "";
-//		time = readerString;
-//		time = time.substring(30);
-//		time = time.trim();
-//		return time;
-//
-//	}
-
 }
+
