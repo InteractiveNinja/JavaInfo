@@ -221,7 +221,7 @@ public class InfoGUI extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(info.exportInfos()) {
-			JOptionPane.showMessageDialog(null, "Datei wurde erfolgreich expotiert");
+			JOptionPane.showMessageDialog(null, "Datei wurde erfolgreich auf den Desktop exportiert");
 		} else {
 			JOptionPane.showMessageDialog(null, "Datei konnte nicht erstellt werden");
 		}
